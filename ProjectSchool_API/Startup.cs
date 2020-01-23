@@ -33,6 +33,7 @@ namespace ProjectSchool_API
             });
 
             services.AddScoped<IRepository, Repository>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace ProjectSchool_API
             }
 
             //app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }
